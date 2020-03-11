@@ -56,15 +56,6 @@ app.delete('/bookings', (request, response) => {
         })
 })
 
-app.put('/bookings', (request, response) => {
-    database.run('UPDATE bookings SET name=?, population=? WHERE name=?', [request.body.name, request.body.population, request.body.oldCity])
-        .then(() => {
-            response.status(200).send()
-        })
-
-})
-
-
 
 sqlite.open('db.sqlite').then(database_ => {
     database = database_
